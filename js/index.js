@@ -301,7 +301,7 @@ class Hits {
     }
 }
 
-const apiUrl = 'http://localhost:3000/api/v1/ultimate/characters';
+const apiUrl = 'https://github.com/leocabeza/smashbros-unofficial-api/tree/master/pages/api/v1/ultimate/characters';
 
 let characterst = new Array();
 let hitst = new Array();
