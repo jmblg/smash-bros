@@ -1,0 +1,156 @@
+h2 {
+    -webkit-text-stroke: 1px white;
+}
+
+h3 {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+    -webkit-text-stroke: 2px white;
+}
+
+canvas {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+
+.character-container-blocks {
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    atransform: scale(1.025);
+}
+
+.animate-scale-pulse {
+    animation: scalePulse 5s ease-in-out infinite;
+  }  
+
+@keyframes scalePulse {
+    0% {
+      transform: scale(1.15);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1.15);
+    }
+  }
+
+.animate-float-scale {
+    animation: floatAndScale 10s ease-in-out infinite;
+  }
+
+@keyframes floatAndScale {
+    0% {
+      transform: translateX(0) translateY(0) rotate(0deg) scale(1); 
+    }
+    50% {
+      transform: translateX(-2.5vw) translateY(5vw) rotate(10deg) scale(1.15);
+    }
+    100% {
+      transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+    }
+  }
+
+  .animate-float-scale-2 {
+    animation: floatAndScale-2 10s ease-in-out infinite;
+  }
+
+@keyframes floatAndScale-2 {
+    0% {
+      transform: translateX(2.5vw) translateY(5vw) rotate(-10deg) scale(1.15);
+    }
+    50% {
+      transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+    }
+    100% {
+      transform: translateX(2.5vw) translateY(5vw) rotate(-10deg) scale(1.15);
+    }
+  }
+
+  .fight-card {
+    animation: fight-card-float 4s linear infinite;
+  }
+
+  @keyframes fight-card-float {
+    0% {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0) translateZ(0) translateY(0);
+    }
+    33% {
+      transform: rotateX(-2.5deg) rotateY(-2.5deg) rotateZ(2.5deg) translateZ(1vw) translateY(-0.5vw);
+    }
+    66% {
+      transform: rotateX(2.5deg) rotateY(2.5deg) rotateZ(-2.5deg) translateZ(-1vw) translateY(0.5vw);
+    }
+     100% {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0) translateZ(0) translateY(0);
+    }
+  }
+
+  .fight-card-2 {
+    animation: fight-card-float-2 4s linear infinite;
+  }
+
+  @keyframes fight-card-float-2 {
+    0% {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0) translateZ(0) translateY(0);
+    }
+    33% {
+      transform: rotateX(2.5deg) rotateY(2.5deg) rotateZ(-2.5deg) translateZ(-1vw) translateY(0.5vw);
+    }
+    66% {
+      transform: rotateX(-2.5deg) rotateY(-2.5deg) rotateZ(2.5deg) translateZ(1vw) translateY(-0.5vw);
+    }
+     100% {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0) translateZ(0) translateY(0);
+    }
+  }  
+  
+  .fight-character-card-header {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.25));
+  }
+
+.animate-heartbeat {
+        animation: heartbeat 1s ease-in-out infinite;
+        transform-origin: center;
+    }
+
+  @keyframes heartbeat {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(10deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.animate-heartbeat-mirror {
+  animation: heartbeat-mirror 1s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes heartbeat-mirror {
+0% {
+  transform: scale(1) rotate(0deg) scaleX(-1);
+}
+50% {
+  transform: scale(1.1) rotate(10deg) scaleX(-1);
+}
+100% {
+  transform: scale(1) rotate(0deg) scaleX(-1);
+}
+}
+
+#fight-alert {
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75));
+}
+
+.fight-character-hits-table-left {
+  left: 6rem !important;
+}
+
+.fight-character-hits-table-right {
+  right: 6rem !important;
+}

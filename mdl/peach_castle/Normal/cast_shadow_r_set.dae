@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Ziella</author>
+      <authoring_tool>OpenCOLLADA for 3ds Max;  Version: 1.6;  Revision: 68</authoring_tool>
+    </contributor>
+    <created>2020-07-18T21:19:03</created>
+    <modified>2020-07-18T21:19:03</modified>
+    <unit name="centimeter" meter="0.01"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="ShaderfxShader32">
+      <profile_COMMON>
+        <newparam sid="mc64_triangle_col_png-surface">
+          <surface type="2D">
+            <init_from>mc64_triangle_col_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="mc64_triangle_col_png-sampler">
+          <sampler2D>
+            <source>mc64_triangle_col_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <blinn>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0.588 0.588 0.588 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="mc64_triangle_col_png-sampler" texcoord="CHANNEL1"/>
+            </diffuse>
+            <specular>
+              <color>0 0 0 1</color>
+            </specular>
+            <shininess>
+              <float>10</float>
+            </shininess>
+            <reflective>
+              <color>0 0 0 1</color>
+            </reflective>
+            <transparent opaque="A_ONE">
+              <texture texture="mc64_triangle_col_png-sampler" texcoord="CHANNEL1"/>
+            </transparent>
+            <transparency>
+              <float>1</float>
+            </transparency>
+          </blinn>
+        </technique>
+      </profile_COMMON>
+      <extra>
+        <technique profile="OpenCOLLADA3dsMax">
+          <extended_shader>
+            <opacity_type sid="opacity_type" type="int">0</opacity_type>
+            <falloff_type sid="falloff_type" type="int">0</falloff_type>
+            <falloff sid="falloff" type="float">0</falloff>
+            <index_of_refraction sid="index_of_refraction" type="float">1.5</index_of_refraction>
+            <wire_size sid="wire_size" type="float">1</wire_size>
+            <wire_units sid="wire_units" type="int">0</wire_units>
+            <apply_reflection_dimming sid="apply_reflection_dimming" type="bool">0</apply_reflection_dimming>
+            <dim_level sid="dim_level" type="float">0</dim_level>
+            <reflection_level sid="reflection_level" type="float">3</reflection_level>
+          </extended_shader>
+          <shader>
+            <ambient_diffuse_texture_lock sid="ambient_diffuse_texture_lock" type="bool">1</ambient_diffuse_texture_lock>
+            <ambient_diffuse_lock sid="ambient_diffuse_lock" type="bool">1</ambient_diffuse_lock>
+            <diffuse_specular_lock sid="diffuse_specular_lock" type="bool">0</diffuse_specular_lock>
+            <use_self_illum_color sid="use_self_illum_color" type="bool">0</use_self_illum_color>
+            <self_illumination sid="self_illumination" type="float">0</self_illumination>
+            <specular_level sid="specular_level" type="float">0</specular_level>
+            <soften sid="soften" type="float">0.1</soften>
+          </shader>
+        </technique>
+      </extra>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="ShaderfxShader32-material" name="ShaderfxShader32">
+      <instance_effect url="#ShaderfxShader32"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="geom-shadow_model_rShape" name="shadow_model_rShape">
+      <mesh>
+        <source id="geom-shadow_model_rShape-positions">
+          <float_array id="geom-shadow_model_rShape-positions-array" count="72">9.3649 12.9431 15.3595 9.10216 12.9431 15.3595 7.88668 -12.5725 4.03377 -12.9648 -12.7775 15.3807 9.3649 12.9431 15.3595 9.3649 12.9431 -15.455 9.10216 12.9431 15.3595 9.10216 12.9431 -15.455 9.3649 12.9431 -15.455 7.88668 -12.5725 3.97527 9.10216 12.9431 -15.455 -12.9648 -12.7775 -15.4763 7.88668 -12.5725 4.03377 -12.9648 -12.7775 15.3807 7.88668 -12.5725 3.97527 -12.9648 -12.7775 -15.4763 -12.9648 -12.7775 15.3807 9.10216 12.9431 15.3595 -12.9648 -12.7775 -15.4763 9.10216 12.9431 -15.455 7.88668 -12.5725 4.03377 7.88668 -12.5725 3.97527 9.3649 12.9431 15.3595 9.3649 12.9431 -15.455</float_array>
+          <technique_common>
+            <accessor source="#geom-shadow_model_rShape-positions-array" count="24" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-shadow_model_rShape-normals">
+          <float_array id="geom-shadow_model_rShape-normals-array" count="72">0.4402886 -0.3816811 0.8126903 0.4402886 -0.3816811 0.8126903 0.4402886 -0.3816811 0.8126903 0.4402886 -0.3816811 0.8126903 3.05176e-5 1 3.05176e-5 3.05176e-5 1 3.05176e-5 3.05176e-5 1 3.05176e-5 3.05176e-5 1 3.05176e-5 0.5860325 -0.5083832 -0.6309616 0.5860325 -0.5083832 -0.6309616 0.5860325 -0.5083832 -0.6309616 0.5860325 -0.5083832 -0.6309616 0.009830986 -0.9999517 3.0531e-5 0.009830986 -0.9999517 3.0531e-5 0.009830986 -0.9999517 3.0531e-5 0.009830986 -0.9999517 3.0531e-5 -0.7590152 0.6510729 3.05267e-5 -0.7590152 0.6510729 3.05267e-5 -0.7590152 0.6510729 3.05267e-5 -0.7590152 0.6510729 3.05267e-5 0.9983255 -0.05784696 3.05261e-5 0.9983255 -0.05784696 3.05261e-5 0.9983255 -0.05784696 3.05261e-5 0.9983255 -0.05784696 3.05261e-5</float_array>
+          <technique_common>
+            <accessor source="#geom-shadow_model_rShape-normals-array" count="24" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-shadow_model_rShape-map-2">
+          <float_array id="geom-shadow_model_rShape-map-2-array" count="72">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#geom-shadow_model_rShape-map-2-array" count="24" stride="3">
+              <param name="R" type="float"/>
+              <param name="G" type="float"/>
+              <param name="B" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-shadow_model_rShape-map0">
+          <float_array id="geom-shadow_model_rShape-map0-array" count="72">0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608 0.5019608</float_array>
+          <technique_common>
+            <accessor source="#geom-shadow_model_rShape-map0-array" count="24" stride="3">
+              <param name="R" type="float"/>
+              <param name="G" type="float"/>
+              <param name="B" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-shadow_model_rShape-map1">
+          <float_array id="geom-shadow_model_rShape-map1-array" count="72">0.625 0.25 0 0.375 0.25 0 0.625 0 0 0.375 0 0 0.625 0.25 0 0.625 0.5 0 0.375 0.25 0 0.375 0.5 0 0.625 0.5 0 0.625 0.75 0 0.375 0.5 0 0.375 0.75 0 0.625 0.9999695 0 0.375 0.9999695 0 0.625 0.75 0 0.375 0.75 0 0.375 0 0 0.375 0.25 0 0.125 0 0 0.125 0.25 0 0.625 0 0 0.875 0 0 0.625 0.25 0 0.875 0.25 0</float_array>
+          <technique_common>
+            <accessor source="#geom-shadow_model_rShape-map1-array" count="24" stride="3">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+              <param name="P" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-shadow_model_rShape-map1-textangents">
+          <float_array id="geom-shadow_model_rShape-map1-textangents-array" count="72">0.8061459 0.1680499 -0.3578183 0.8433443 0.08738502 -0.4158555 0.8433443 0.08738502 -0.4158555 0.8805427 0.006720183 -0.4738927 1 -3.05176e-5 -9.31323e-10 1 -3.05176e-5 -9.31323e-10 1 -3.05176e-5 -9.31323e-10 1 -3.05176e-5 -9.31323e-10 0.656566 0.297929 0.369764 0.6955081 0.1511526 0.5241949 0.6955081 0.1511526 0.5241949 0.7344502 0.004376175 0.6786259 0.8783337 0.008620709 -0.4779703 0.8047707 0.007915188 0.1020732 0.8047707 0.007915188 0.1020732 0.7312078 0.007209667 0.6821167 2.31702e-5 -1.98751e-5 1 2.31702e-5 -1.98751e-5 1 2.31702e-5 -1.98751e-5 1 2.31702e-5 -1.98751e-5 1 3.0475e-5 -1.76584e-6 -1 3.0475e-5 -1.76584e-6 -1 3.0475e-5 -1.76584e-6 -1 3.0475e-5 -1.76584e-6 -1</float_array>
+          <technique_common>
+            <accessor source="#geom-shadow_model_rShape-map1-textangents-array" count="24" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-shadow_model_rShape-map1-texbinormals">
+          <float_array id="geom-shadow_model_rShape-map1-texbinormals-array" count="72">0 -0.9051451 -0.4251027 -0.09287553 -0.9196504 -0.3815983 -0.09287553 -0.9196504 -0.3815983 -0.1754167 -0.9242696 -0.3390496 0 -3.05176e-5 1 0 -3.05176e-5 1 0 -3.05176e-5 1 0 -3.05176e-5 1 0 0.7786885 -0.6274108 0.1935871 0.8439824 -0.5002176 0.1935871 0.8439824 -0.5002176 0.342246 0.8611199 -0.3759525 -0.477947 -0.004725736 -0.878376 0.1258153 0.001206658 -0.992053 0.1258153 0.001206658 -0.992053 0.682084 0.006683555 -0.7312433 -0.6510729 -0.7590152 0 -0.6510729 -0.7590152 0 -0.6510729 -0.7590152 0 -0.6510729 -0.7590152 0 -0.05784695 -0.9983255 0 -0.05784695 -0.9983255 0 -0.05784695 -0.9983255 0 -0.05784695 -0.9983255 0</float_array>
+          <technique_common>
+            <accessor source="#geom-shadow_model_rShape-map1-texbinormals-array" count="24" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="geom-shadow_model_rShape-vertices">
+          <input semantic="POSITION" source="#geom-shadow_model_rShape-positions"/>
+        </vertices>
+        <triangles material="ShaderfxShader32" count="12">
+          <input semantic="VERTEX" source="#geom-shadow_model_rShape-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#geom-shadow_model_rShape-normals" offset="1"/>
+          <input semantic="COLOR" source="#geom-shadow_model_rShape-map0" offset="2" set="0"/>
+          <input semantic="TEXCOORD" source="#geom-shadow_model_rShape-map1" offset="3" set="0"/>
+          <input semantic="TEXTANGENT" source="#geom-shadow_model_rShape-map1-textangents" offset="4" set="1"/>
+          <input semantic="TEXBINORMAL" source="#geom-shadow_model_rShape-map1-texbinormals" offset="4" set="1"/>
+          <p>0 0 0 0 0 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 5 5 5 5 5 7 7 7 7 7 8 8 8 8 8 9 9 9 9 9 10 10 10 10 10 9 9 9 9 9 11 11 11 11 11 10 10 10 10 10 12 12 12 12 12 13 13 13 13 13 14 14 14 14 14 14 14 14 14 14 13 13 13 13 13 15 15 15 15 15 16 16 16 16 16 17 17 17 17 17 18 18 18 18 18 18 18 18 18 18 17 17 17 17 17 19 19 19 19 19 20 20 20 20 20 21 21 21 21 21 22 22 22 22 22 21 21 21 21 21 23 23 23 23 23 22 22 22 22 22</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers>
+    <controller id="geom-shadow_model_rShape-skin1">
+      <skin source="#geom-shadow_model_rShape">
+        <bind_shape_matrix>1 0 0 100 0 1 0 79 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="geom-shadow_model_rShape-skin1-joints">
+          <Name_array id="geom-shadow_model_rShape-skin1-joints-array" count="2">joint0 joint1</Name_array>
+          <technique_common>
+            <accessor source="#geom-shadow_model_rShape-skin1-joints-array" count="2" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-shadow_model_rShape-skin1-bind_poses">
+          <float_array id="geom-shadow_model_rShape-skin1-bind_poses-array" count="32">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 -100 0 1 0 -79 0 0 1 0 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#geom-shadow_model_rShape-skin1-bind_poses-array" count="2" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-shadow_model_rShape-skin1-weights">
+          <float_array id="geom-shadow_model_rShape-skin1-weights-array" count="1">1</float_array>
+          <technique_common>
+            <accessor source="#geom-shadow_model_rShape-skin1-weights-array" count="1" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#geom-shadow_model_rShape-skin1-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#geom-shadow_model_rShape-skin1-bind_poses"/>
+        </joints>
+        <vertex_weights count="24">
+          <input semantic="JOINT" source="#geom-shadow_model_rShape-skin1-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#geom-shadow_model_rShape-skin1-weights" offset="1"/>
+          <vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</vcount>
+          <v>1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+  </library_controllers>
+  <library_lights>
+    <light id="EnvironmentAmbientLight" name="EnvironmentAmbientLight">
+      <technique_common>
+        <ambient>
+          <color>0 0 0</color>
+        </ambient>
+      </technique_common>
+    </light>
+  </library_lights>
+  <library_images>
+    <image id="mc64_triangle_col_png">
+      <init_from>../Textures/mc64_triangle_col.png</init_from>
+    </image>
+  </library_images>
+  <library_visual_scenes>
+    <visual_scene id="MaxScene">
+      <node name="EnvironmentAmbientLight">
+        <instance_light url="#EnvironmentAmbientLight"/>
+      </node>
+      <node id="node-cast_shadow_r" name="cast_shadow_r" sid="joint0" type="JOINT">
+        <matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <node id="node-shadow_model_r" name="shadow_model_r" sid="joint1" type="JOINT">
+          <matrix>1 0 0 100 0 1 0 79 0 0 1 0 0 0 0 1</matrix>
+          <extra>
+            <technique profile="OpenCOLLADA">
+              <cast_shadows sid="cast_shadows" type="bool">1</cast_shadows>
+              <receive_shadows sid="receive_shadows" type="bool">1</receive_shadows>
+              <primary_visibility sid="primary_visibility" type="bool">1</primary_visibility>
+              <secondary_visibility sid="secondary_visibility" type="bool">1</secondary_visibility>
+            </technique>
+          </extra>
+        </node>
+        <extra>
+          <technique profile="OpenCOLLADA">
+            <cast_shadows sid="cast_shadows" type="bool">1</cast_shadows>
+            <receive_shadows sid="receive_shadows" type="bool">1</receive_shadows>
+            <primary_visibility sid="primary_visibility" type="bool">1</primary_visibility>
+            <secondary_visibility sid="secondary_visibility" type="bool">1</secondary_visibility>
+          </technique>
+        </extra>
+      </node>
+      <node id="node-shadow_model_rShape" name="shadow_model_rShape">
+        <instance_controller url="#geom-shadow_model_rShape-skin1">
+          <skeleton>#node-cast_shadow_r</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="ShaderfxShader32" target="#ShaderfxShader32-material">
+                <bind_vertex_input semantic="CHANNEL1" input_semantic="TEXCOORD" input_set="0"/>
+                <bind_vertex_input semantic="CHANNEL1" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+        <extra>
+          <technique profile="OpenCOLLADA">
+            <cast_shadows sid="cast_shadows" type="bool">1</cast_shadows>
+            <receive_shadows sid="receive_shadows" type="bool">1</receive_shadows>
+            <primary_visibility sid="primary_visibility" type="bool">1</primary_visibility>
+            <secondary_visibility sid="secondary_visibility" type="bool">1</secondary_visibility>
+          </technique>
+        </extra>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#MaxScene"/>
+  </scene>
+</COLLADA>
