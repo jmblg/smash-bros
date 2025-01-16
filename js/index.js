@@ -301,7 +301,7 @@ class Hits {
     }
 }
 
-const apiUrl = 'https://github.com/leocabeza/smashbros-unofficial-api/tree/master/pages/api/v1/ultimate/characters';
+const apiUrl = 'json/characters.json';
 
 let characterst = new Array();
 let hitst = new Array();
