@@ -227,12 +227,13 @@ class Characters {
 class Hits {
     static id = 1;
 
-    constructor(name, type, power) {
+    constructor(name, type, power, snd) {
         this.id = Hits.id;
         this.name = name;
         this.type = type;
         this.power = power;
         this.img = `img/items/${name}.png`;
+        this.snd = new Audio(`snd/items/${snd}.wav`);
 
         Hits.id++;
     }
@@ -247,26 +248,24 @@ let heart = new Image(); heart.src = "img/hud/heart.png";
 
 let fightEnd = false;
 
-hitst.push(new Hits("barrel", "attack", 500));
-hitst.push(new Hits("beam_sword", "attack", 400));
-hitst.push(new Hits("bob-omb", "attack", 1000));
-hitst.push(new Hits("bunny_hood", "speed", 0));
-hitst.push(new Hits("flower", "attack", 450));
-hitst.push(new Hits("gun", "attack", 350));
-hitst.push(new Hits("hammer", "attack", 850));
-hitst.push(new Hits("mushroom", "speed", 0));
-hitst.push(new Hits("shell", "attack", 750));
-hitst.push(new Hits("shield", "defense", 0));
-hitst.push(new Hits("punch", "attack", 200));
-hitst.push(new Hits("green_block", "defense", 200));
-hitst.push(new Hits("spicy_curry", "speed", 200));
-hitst.push(new Hits("missile", "attack", 200));
+hitst.push(new Hits("barrel", "attack", 500, "box"));
+hitst.push(new Hits("beam_sword", "attack", 400, "beam_sword"));
+hitst.push(new Hits("bob-omb", "attack", 1000, "explosion"));
+hitst.push(new Hits("bunny_hood", "speed", 0, "bunny"));
+hitst.push(new Hits("flower", "attack", 450, "plant"));
+hitst.push(new Hits("gun", "attack", 350, "gun"));
+hitst.push(new Hits("hammer", "attack", 850, "hammer"));
+hitst.push(new Hits("mushroom", "speed", 0, "get"));
+hitst.push(new Hits("shell", "attack", 750, "shell"));
+hitst.push(new Hits("shield", "defense", 0, "shield"));
+hitst.push(new Hits("punch", "attack", 200, "hit"));
+hitst.push(new Hits("green_block", "defense", 200, "block"));
+hitst.push(new Hits("spicy_curry", "speed", 200, "dot2"));
+hitst.push(new Hits("missile", "attack", 200, "explosion"));
 
 let music = new Audio("snd/theme/theme.mp3");
-music.volume = 0.5;
+music.volume = 0.33;
 music.loop = true;
-
-let item_snd = new Audio("snd/item/dot.wav")
 
 // Fonction pour récupérer tous les personnages
 async function getAllCharacters() {
@@ -434,6 +433,8 @@ function fightHits(id, who) {
 
         document.getElementById("fight-character" + who + "-hit-" + id).innerHTML = "";
 
+        hitsO.snd.play();
+
         if (who == "") {
             o1 = characterO;
             o2 = characterOpponentO;
@@ -509,8 +510,6 @@ function fightHits(id, who) {
                 o1.turns = 3; fightAlert(`${o1.name.toUpperCase()} can attack with 2 items.`);
             break;
         }
-
-        item_snd.play();
 
         if (fightEnd == false) {
             document.getElementById("fight-hit").style.display = "block";
