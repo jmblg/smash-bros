@@ -35,7 +35,7 @@ camera.position.z = 2000;
 // Feu d'artifice
 let fireworksVideo, fireworksTexture, fireworksSprite, fireworksFight;
 fireworksVideo = document.createElement('video'); // Créer un élément vidéo HTML
-fireworksVideo.src = "public/img/effects/firework.webm"; 
+fireworksVideo.src = "img/effects/firework.webm"; 
 fireworksVideo.load();
 fireworksVideo.play();
 fireworksVideo.loop = true;
@@ -74,68 +74,6 @@ let textures = [];
     textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smariopa_col.png'));
     textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_carpet_col.png'));
     textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_carpet_nor.png'));
-
- /* 
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario01_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario02_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario04a_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario11_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario18a_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario22a_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario052_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario112_2_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario112b_ao.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario112b_mtl.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario112b_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario112b_rgh.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bnsmy_mc64_smario112b_spc.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/bumperf1.00_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/dammy_white8bit_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_cube_specular_0.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_cube_specular_1.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_cube_specular_2.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_cube_specular_3.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_cube_specular_4.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_cube_specular_5.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_yuka_cube_specular_0.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_yuka_cube_specular_1.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_yuka_cube_specular_2.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_yuka_cube_specular_3.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_yuka_cube_specular_4.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mario_castle64_yuka_cube_specular_5.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_bg1_4_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_carpet_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_carpet_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_move_bake_lit.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_ring_bake_lit.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_ring_indirect_bake_lit.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_rope_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario01_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario01_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario02_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario02_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario04a_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario05a_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario10a_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario11_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario11_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario12_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario21_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario22a_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario23_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario052_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario112_2_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario112_2_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario112b_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario112b_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_smario173a_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_surinuke_bake_lit.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_triangle_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_triangle_nor.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/mc64_white32_col.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/transition_background01_con.png'));
-    textures.push(textureLoader.load('mdl/peach_castle/Textures/transition_ground01_con.png'));
-    */
 
 const loader = new FBXLoader();
 loader.load(
@@ -246,14 +184,14 @@ class Characters {
         if (this.name_url == "piranha_plant") { this.name_url = "packun_flower"; }
         if (this.name_url == "min_min") { this.name_url = "minmin"; }
 
-        this.img = `public/img/characters/main/${this.name_url}.png`;
+        this.img = `img/characters/main/${this.name_url}.png`;
     //    this.img = `https://www.smashbros.com/assets_v2/img/fighter/${this.name_url}/main.png`;
-        this.img_thumb_v = `public/img/characters/thumb_v/${this.name_url}.png`;
+        this.img_thumb_v = `img/characters/thumb_v/${this.name_url}.png`;
     //    this.img_thumb_v = `https://www.smashbros.com/assets_v2/img/fighter/thumb_v/${this.name_url}.png`;
-        this.img_thumb_h = `public/img/characters/thumb_h/${this.name_url}.png`;
+        this.img_thumb_h = `img/characters/thumb_h/${this.name_url}.png`;
     //    this.img_thumb_h = `https://www.smashbros.com/assets_v2/img/fighter/thumb_h/${this.name_url}.png`;
 
-        this.snd = new Audio(`public/snd/characters/${this.name_url}.wav`);
+        this.snd = new Audio(`snd/characters/${this.name_url}.wav`);
 
         this.availability = availability;
 
@@ -294,18 +232,18 @@ class Hits {
         this.name = name;
         this.type = type;
         this.power = power;
-        this.img = `public/img/items/${name}.png`;
+        this.img = `img/items/${name}.png`;
 
         Hits.id++;
     }
 }
 
-const apiUrl = 'public/json/characters.json';
+const apiUrl = 'json/characters.json';
 
 let characterst = new Array();
 let hitst = new Array();
-let star = new Image(); star.src = "public/img/hud/star.png";
-let heart = new Image(); heart.src = "public/img/hud/heart.png";
+let star = new Image(); star.src = "img/hud/star.png";
+let heart = new Image(); heart.src = "img/hud/heart.png";
 
 let fightEnd = false;
 
@@ -324,11 +262,11 @@ hitst.push(new Hits("green_block", "defense", 200));
 hitst.push(new Hits("spicy_curry", "speed", 200));
 hitst.push(new Hits("missile", "attack", 200));
 
-let music = new Audio("public/snd/theme/theme.mp3");
+let music = new Audio("snd/theme/theme.mp3");
 music.volume = 0.5;
 music.loop = true;
 
-let item_snd = new Audio("public/snd/item/get.wav")
+let item_snd = new Audio("snd/item/get.wav")
 
 // Fonction pour récupérer tous les personnages
 async function getAllCharacters() {
