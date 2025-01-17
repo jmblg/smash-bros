@@ -14,6 +14,13 @@ canvas {
     z-index: 0;
 }
 
+@media (max-width: 768px)
+	{
+    #smartphones {
+      display: inline;
+    }
+  }
+
 .character-container-blocks {
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
     atransform: scale(1.025);
