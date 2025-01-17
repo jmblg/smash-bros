@@ -365,31 +365,8 @@ function fight() {
 function fight_build_card(o, who) {
     document.getElementById("fight-character" + who + "-card-img").src = o.img_thumb_h;
     document.getElementById("fight-character" + who + "-card-name").textContent = o.name;
-    let html = "";
-    for (let i = 0; i < o.force; i++) {
-        html += "<img src='" + star.src + "' class='inline-block w-5 mr-1' />";
-      }
-    document.getElementById("fight-character" + who + "-force").innerHTML = html;
-    html = "";
-    for (let i = 0; i < o.defense; i++) {
-        html += "<img src='" + star.src + "' class='inline-block w-5 mr-1' />";
-      }
-    document.getElementById("fight-character" + who + "-defense").innerHTML = html;
-    html = "";
-    for (let i = 0; i < o.endurance; i++) {
-        html += "<img src='" + star.src + "' class='inline-block w-5 mr-1' />";
-      }
-    document.getElementById("fight-character" + who + "-endurance").innerHTML = html;
-    html = "";
-    for (let i = 0; i < o.agility; i++) {
-        html += "<img src='" + star.src + "' class='inline-block w-5 mr-1' />";
-      }
-    document.getElementById("fight-character" + who + "-agility").innerHTML = html;
-    html = "";
-    for (let i = 0; i < o.wisdom; i++) {
-        html += "<img src='" + star.src + "' class='inline-block w-5 mr-1' />";
-      }
-    document.getElementById("fight-character" + who + "-wisdom").innerHTML = html;
+
+    characters_parameters_build(o, who, "fight-character");
 
     fight_build_lives(o, who);
 }
@@ -560,6 +537,34 @@ function fightAlert(msg) {
     document.getElementById("fight-alert-p").textContent = msg;
 }
 
+function characters_parameters_build(o, who, where) {
+    let html = "";
+    for (let i = 0; i < o.force; i++) {
+        html += "<img src='" + star.src + "' class='inline-block w-5 mr-1' />";
+      }
+    document.getElementById(where + who + "-force").innerHTML = html;
+    html = "";
+    for (let i = 0; i < o.defense; i++) {
+        html += "<img src='" + star.src + "' class='inline-block w-5 mr-1' />";
+      }
+    document.getElementById(where + who + "-defense").innerHTML = html;
+    html = "";
+    for (let i = 0; i < o.endurance; i++) {
+        html += "<img src='" + star.src + "' class='inline-block w-5 mr-1' />";
+      }
+    document.getElementById(where + who + "-endurance").innerHTML = html;
+    html = "";
+    for (let i = 0; i < o.agility; i++) {
+        html += "<img src='" + star.src + "' class='inline-block w-5 mr-1' />";
+      }
+    document.getElementById(where + who + "-agility").innerHTML = html;
+    html = "";
+    for (let i = 0; i < o.wisdom; i++) {
+        html += "<img src='" + star.src + "' class='inline-block w-5 mr-1' />";
+      }
+    document.getElementById(where + who + "-wisdom").innerHTML = html;
+}
+
 function nbralet(min,max) {
 	return Math.floor(Math.random() * max) + min;
 }
@@ -602,11 +607,58 @@ document.addEventListener("DOMContentLoaded", function() {
                 fightHits(id, "");
             }
         });
+    
+    m.addEventListener("click", function(event) {
+        // La méthode closest() permet de remonter l'arbre DOM et de trouver le premier élément parent qui correspond au sélecteur donné
+        const targetBlock = event.target.closest(".character-container-blocks");
+        if (targetBlock) {
+                let id = targetBlock.id.replace("character-container-blocks-id-", "").toString();
+                beforeStart(id);
+            }
+
+        const fightCharacterHits = event.target.closest(".fight-character-hits");
+        if (fightCharacterHits) {
+                let id = fightCharacterHits.id.replace("fight-character-hit-", "").toString();
+                fightHits(id, "");
+            }
+        });
+
+    m.addEventListener("mouseover", function(event) {
+        // La méthode closest() permet de remonter l'arbre DOM et de trouver le premier élément parent qui correspond au sélecteur donné
+        const targetBlock = event.target.closest(".character-container-blocks");
+        if (targetBlock) {
+                let id = targetBlock.id.replace("character-container-blocks-id-", "").toString();
+                let o = characterst.find(f => f.id.toString() === id.toString());
+
+                document.getElementById("characters-parameters-name").textContent = o.name;
+                characters_parameters_build(o, "", "characters-parameters");
+
+                document.getElementById("characters-parameters").style.display = "inline";
+            }
+        });
+    
+    m.addEventListener("mouseout", function(event) {
+        // La méthode closest() permet de remonter l'arbre DOM et de trouver le premier élément parent qui correspond au sélecteur donné
+        const targetBlock = event.target.closest(".character-container-blocks");
+        if (targetBlock) {
+                adocument.getElementById("characters-parameters").style.display = "none";
+            }
+        });
 
     m =  document.getElementById("before-start");
     m.addEventListener('click', function(event) {
         fight();
         });
+});
+
+const charactersParametersDiv = document.getElementById("characters-parameters");
+document.addEventListener('mousemove', (event) => {
+    const mouseX = event.clientX + 120;
+    const mouseY = event.clientY + 120;
+
+    // Positionner la div selon la souris
+    charactersParametersDiv.style.left = `${mouseX - charactersParametersDiv.offsetWidth / 2}px`; // Centrer la div sur la souris
+    charactersParametersDiv.style.top = `${mouseY - charactersParametersDiv.offsetHeight / 2}px`; // Centrer la div sur la souris
 });
 
 window.onload = function() {
