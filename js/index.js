@@ -35,7 +35,7 @@ camera.position.z = 2000;
 // Feu d'artifice
 let fireworksVideo, fireworksTexture, fireworksSprite, fireworksFight;
 fireworksVideo = document.createElement('video'); // Créer un élément vidéo HTML
-fireworksVideo.src = 'img/effects/firework.webm'; 
+fireworksVideo.src = "public/img/effects/firework.webm"; 
 fireworksVideo.load();
 fireworksVideo.play();
 fireworksVideo.loop = true;
@@ -246,14 +246,14 @@ class Characters {
         if (this.name_url == "piranha_plant") { this.name_url = "packun_flower"; }
         if (this.name_url == "min_min") { this.name_url = "minmin"; }
 
-        this.img = `img/characters/main/${this.name_url}.png`;
+        this.img = `public/img/characters/main/${this.name_url}.png`;
     //    this.img = `https://www.smashbros.com/assets_v2/img/fighter/${this.name_url}/main.png`;
-        this.img_thumb_v = `img/characters/thumb_v/${this.name_url}.png`;
+        this.img_thumb_v = `public/img/characters/thumb_v/${this.name_url}.png`;
     //    this.img_thumb_v = `https://www.smashbros.com/assets_v2/img/fighter/thumb_v/${this.name_url}.png`;
-        this.img_thumb_h = `img/characters/thumb_h/${this.name_url}.png`;
+        this.img_thumb_h = `public/img/characters/thumb_h/${this.name_url}.png`;
     //    this.img_thumb_h = `https://www.smashbros.com/assets_v2/img/fighter/thumb_h/${this.name_url}.png`;
 
-        this.snd = new Audio(`snd/characters/${this.name_url}.wav`);
+        this.snd = new Audio(`public/snd/characters/${this.name_url}.wav`);
 
         this.availability = availability;
 
@@ -294,18 +294,18 @@ class Hits {
         this.name = name;
         this.type = type;
         this.power = power;
-        this.img = `img/items/${name}.png`;
+        this.img = `public/img/items/${name}.png`;
 
         Hits.id++;
     }
 }
 
-const apiUrl = 'json/characters.json';
+const apiUrl = 'public/json/characters.json';
 
 let characterst = new Array();
 let hitst = new Array();
-let star = new Image(); star.src = "img/hud/star.png";
-let heart = new Image(); heart.src = "img/hud/heart.png";
+let star = new Image(); star.src = "public/img/hud/star.png";
+let heart = new Image(); heart.src = "public/img/hud/heart.png";
 
 let fightEnd = false;
 
@@ -324,11 +324,11 @@ hitst.push(new Hits("green_block", "defense", 200));
 hitst.push(new Hits("spicy_curry", "speed", 200));
 hitst.push(new Hits("missile", "attack", 200));
 
-let music = new Audio("snd/theme/theme.mp3");
+let music = new Audio("public/snd/theme/theme.mp3");
 music.volume = 0.5;
 music.loop = true;
 
-let item_snd = new Audio("snd/item/get.wav")
+let item_snd = new Audio("public/snd/item/get.wav")
 
 // Fonction pour récupérer tous les personnages
 async function getAllCharacters() {
@@ -346,7 +346,7 @@ async function getAllCharacters() {
 
 // Fonction pour afficher la liste des personnages sur la page
 function displayCharacterList(answert) {
-    const container = document.getElementById('character-container');
+    const container = document.getElementById("character-container");
     let charactersList = "";
     let curl = "";
 
