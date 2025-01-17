@@ -221,7 +221,6 @@ function animate() {
 animate();
 
 
-
 ////// API
 
 class Characters {
