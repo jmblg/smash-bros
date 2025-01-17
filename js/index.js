@@ -266,7 +266,7 @@ let music = new Audio("snd/theme/theme.mp3");
 music.volume = 0.5;
 music.loop = true;
 
-let item_snd = new Audio("snd/item/get.wav")
+let item_snd = new Audio("snd/item/dot.wav")
 
 // Fonction pour récupérer tous les personnages
 async function getAllCharacters() {
@@ -510,6 +510,8 @@ function fightHits(id, who) {
             break;
         }
 
+        item_snd.play();
+
         if (fightEnd == false) {
             document.getElementById("fight-hit").style.display = "block";
             document.getElementById("fight-hit-img").src = hitsO.img;
@@ -598,8 +600,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const fightCharacterHits = event.target.closest(".fight-character-hits");
         if (fightCharacterHits) {
                 let id = fightCharacterHits.id.replace("fight-character-hit-", "").toString();
-                item_snd.play();
-
                 fightHits(id, "");
             }
         });
