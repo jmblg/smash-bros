@@ -624,7 +624,7 @@ function fightAlert(msg) {
 
 function nbralet(min,max) {
 	return Math.floor(Math.random() * max) + min;
-	}
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     let m = null;
