@@ -116,6 +116,10 @@ canvas {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.25));
   }
 
+  .fight-card-attributes td {
+    padding: 3px;
+  }
+
 .animate-heartbeat {
         animation: heartbeat 1s ease-in-out infinite;
         transform-origin: center;
