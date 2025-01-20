@@ -295,9 +295,8 @@ function displayCharacterList(answert) {
             <div id='character-container-blocks-id-${t.id}' class='character-container-blocks inline-block mt-0 w-30'>
                 <div class="relative">
                     <img src="${t.img_thumb_v}" alt="${t.name} Portrait" class="duration-200 hover:scale-110 cursor-pointer w-full" />
-                    <div class='absolute bottom-1 left-1 bg-red-500 text-white font-bold rounded-full w-12 p-3'>${t.id}</div>
+                    <!-- div class='absolute bottom-1 left-1 bg-red-500 text-white font-bold rounded-full w-12 p-3'>${t.id}</div -->
                 </div>
-                <h4 class="text-base font-bold font-mono break-words overflow-hidden max-w-full">${t.name}</h4>
             </div>
         `;
         curl += `curl -o ${t.name_url}.png ${t.img}`;
@@ -653,8 +652,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const charactersParametersDiv = document.getElementById("characters-parameters");
 document.addEventListener('mousemove', (event) => {
-    const mouseX = event.clientX + 120;
-    const mouseY = event.clientY + 120;
+    let mouseX = event.clientX + 120;
+    let mouseY = event.clientY + 120;
+
+    if (event.clientX >= window.innerWidth - 250) { mouseX = event.clientX - 150; }
 
     // Positionner la div selon la souris
     charactersParametersDiv.style.left = `${mouseX - charactersParametersDiv.offsetWidth / 2}px`; // Centrer la div sur la souris

@@ -156,8 +156,10 @@ canvas {
 
 .fight-character-hits-table-left {
   left: 6rem !important;
+  transform: rotate(0deg) !important;
 }
 
 .fight-character-hits-table-right {
   right: 6rem !important;
+  transform: rotate(0deg) !important;
 }
