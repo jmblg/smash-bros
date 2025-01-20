@@ -233,6 +233,11 @@ class Hits {
         this.type = type;
         this.power = power;
         this.img = `img/items/${name}.png`;
+
+        this.txt = "";
+        if (type == "defense") { this.txt = `This item earns you a defense star`; }
+        else if (type == "speed") { this.txt = `This item allows you to play two turns`; }
+
         this.snd = new Audio(`snd/items/${snd}.wav`);
 
         Hits.id++;
@@ -251,16 +256,16 @@ let fightEnd = false;
 hitst.push(new Hits("barrel", "attack", 500, "box"));
 hitst.push(new Hits("beam_sword", "attack", 400, "beam_sword"));
 hitst.push(new Hits("bob-omb", "attack", 1000, "explosion"));
-hitst.push(new Hits("bunny_hood", "speed", 0, "bunny"));
+hitst.push(new Hits("bunny_hood", "speed", 2, "bunny"));
 hitst.push(new Hits("flower", "attack", 450, "plant"));
 hitst.push(new Hits("gun", "attack", 350, "gun"));
 hitst.push(new Hits("hammer", "attack", 850, "hammer"));
-hitst.push(new Hits("mushroom", "speed", 0, "get"));
+hitst.push(new Hits("mushroom", "speed", 2, "get"));
 hitst.push(new Hits("shell", "attack", 750, "shell"));
-hitst.push(new Hits("shield", "defense", 0, "shield"));
+hitst.push(new Hits("shield", "defense", 500, "shield"));
 hitst.push(new Hits("punch", "attack", 200, "hit"));
-hitst.push(new Hits("green_block", "defense", 200, "block"));
-hitst.push(new Hits("spicy_curry", "speed", 200, "dot2"));
+hitst.push(new Hits("green_block", "defense", 500, "block"));
+hitst.push(new Hits("spicy_curry", "speed", 2, "dot2"));
 hitst.push(new Hits("missile", "attack", 200, "explosion"));
 
 let music = new Audio("snd/theme/theme.mp3");
@@ -292,9 +297,9 @@ function displayCharacterList(answert) {
         let t = characterst[characterst.length-1];
 
         charactersList += `
-            <div id='character-container-blocks-id-${t.id}' class='character-container-blocks inline-block mt-0 w-30'>
+            <div id='character-container-blocks-id-${t.id}' class='character-container-blocks duration-200 hover:scale-110 inline-block mt-0 w-30'>
                 <div class="relative">
-                    <img src="${t.img_thumb_v}" alt="${t.name} Portrait" class="duration-200 hover:scale-110 cursor-pointer w-full" />
+                    <img src="${t.img_thumb_v}" alt="${t.name} Portrait" class="cursor-pointer w-full" />
                     <!-- div class='absolute bottom-1 left-1 bg-red-500 text-white font-bold rounded-full w-12 p-3'>${t.id}</div -->
                 </div>
             </div>
@@ -304,7 +309,6 @@ function displayCharacterList(answert) {
     });
 
     container.innerHTML = charactersList;
-//    console.log(curl);
 }
 
 let characterO = null;
@@ -624,9 +628,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     m.addEventListener("mouseover", function(event) {
         // La méthode closest() permet de remonter l'arbre DOM et de trouver le premier élément parent qui correspond au sélecteur donné
-        const targetBlock = event.target.closest(".character-container-blocks");
-        if (targetBlock) {
-                let id = targetBlock.id.replace("character-container-blocks-id-", "").toString();
+        const characterContainerBlock = event.target.closest(".character-container-blocks");
+        if (characterContainerBlock) {
+                let id = characterContainerBlock.id.replace("character-container-blocks-id-", "").toString();
                 let o = characterst.find(f => f.id.toString() === id.toString());
 
                 document.getElementById("characters-parameters-name").textContent = o.name;
@@ -634,13 +638,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 document.getElementById("characters-parameters").style.display = "inline";
             }
+
+        const fightCharacterHits = event.target.closest(".fight-character-hits");
+        if (fightCharacterHits) {
+                let id = fightCharacterHits.id.replace("fight-character-hit-", "").toString();
+                let idO = document.getElementById("fight-character-hit-id-" + id).value;
+                let o = hitst.find(f => f.id.toString() === idO.toString());
+
+                document.getElementById("fight-character-parameters-name").textContent = o.name.replace("_"," ");
+                document.getElementById("fight-character-parameters-type").textContent = o.type;
+                document.getElementById("fight-character-parameters-power").textContent = o.power;
+                document.getElementById("fight-character-parameters-txt").textContent = o.txt;
+
+                document.getElementById("fight-character-hits-parameters").style.display = "block";
+            }
         });
-    
+
     m.addEventListener("mouseout", function(event) {
         // La méthode closest() permet de remonter l'arbre DOM et de trouver le premier élément parent qui correspond au sélecteur donné
-        const targetBlock = event.target.closest(".character-container-blocks");
-        if (targetBlock) {
+        const characterContainerBlock = event.target.closest(".character-container-blocks");
+        if (characterContainerBlock) {
                 adocument.getElementById("characters-parameters").style.display = "none";
+            }
+        
+        const fightCharacterHits = event.target.closest(".fight-character-hits");
+            if (fightCharacterHits) {
+                document.getElementById("fight-character-hits-parameters").style.display = "none";
             }
         });
 
@@ -651,15 +674,18 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 const charactersParametersDiv = document.getElementById("characters-parameters");
+const fightCharacterHitsParametersDiv = document.getElementById("fight-character-hits-parameters");
 document.addEventListener('mousemove', (event) => {
     let mouseX = event.clientX + 120;
     let mouseY = event.clientY + 120;
 
     if (event.clientX >= window.innerWidth - 250) { mouseX = event.clientX - 150; }
 
-    // Positionner la div selon la souris
-    charactersParametersDiv.style.left = `${mouseX - charactersParametersDiv.offsetWidth / 2}px`; // Centrer la div sur la souris
-    charactersParametersDiv.style.top = `${mouseY - charactersParametersDiv.offsetHeight / 2}px`; // Centrer la div sur la souris
+    charactersParametersDiv.style.left = `${mouseX - charactersParametersDiv.offsetWidth / 2}px`;
+    charactersParametersDiv.style.top = `${mouseY - charactersParametersDiv.offsetHeight / 2}px`;
+
+    fightCharacterHitsParametersDiv.style.left = `${mouseX - fightCharacterHitsParametersDiv.offsetWidth / 2}px`;
+    fightCharacterHitsParametersDiv.style.top = `${mouseY - fightCharacterHitsParametersDiv.offsetHeight / 2}px`;
 });
 
 window.onload = function() {
